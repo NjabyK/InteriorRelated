@@ -1,23 +1,30 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useDragScroll } from "./useDragScroll";
 
-// Aspect ratio of the hero image (width / height)
+// Landing page with responsive hero image and drag-to-scroll hotspots
 const HERO_IMAGE_ASPECT_RATIO = 2000 / 1200; // ≈ 1.67
-
-// Hotspot data: position as % of image, and product handle
 const HOTSPOTS = [
-  { left: "25%", top: "40%", handle: "lamp" },
-  { left: "70%", top: "80%", handle: "couch" },
-  { left: "50%", top: "20%", handle: "table" },
+  { left: "25%", top: "40%", handle: "tree" },
+  { left: "45%", top: "75%", handle: "table" },
+  { left: "45%", top: "30%", handle: "lamp" },
+  { left: "65%", top: "66%", handle: "couch" },
+  { left: "45%", top: "61%", handle: "pillow" },
 ];
 
 export default function Home() {
+  const mobileScrollRef = useDragScroll();
+  const desktopScrollRef = useDragScroll();
+
   return (
     <div className="w-screen h-screen overflow-hidden bg-black flex items-center justify-center">
-      {/* Responsive scrollable hero image with hotspots */}
       <div className="relative w-full h-full flex items-center justify-center">
-        {/* Mobile: horizontal scroll, image fills height */}
-        <div className="block sm:hidden w-full h-full overflow-x-auto overflow-y-hidden">
+        {/* Mobile: horizontal drag-to-scroll, image fills height */}
+        <div
+          ref={mobileScrollRef}
+          className="block sm:hidden w-full h-full overflow-x-auto overflow-y-hidden"
+        >
           <div
             className="relative h-screen min-h-[300px]"
             style={{ width: `calc(100vh * ${HERO_IMAGE_ASPECT_RATIO})`, maxHeight: "100vh" }}
@@ -49,8 +56,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-        {/* Desktop: vertical scroll, image fills width */}
-        <div className="hidden sm:block w-full h-full overflow-y-auto overflow-x-hidden">
+        {/* Desktop: vertical drag-to-scroll, image fills width */}
+        <div
+          ref={desktopScrollRef}
+          className="hidden sm:block w-full h-full overflow-y-auto overflow-x-hidden"
+        >
           <div className="relative w-screen max-w-full mx-auto" style={{ height: "160vh", minHeight: "600px" }}>
             <Image
               src="/hero-drop.webp"
