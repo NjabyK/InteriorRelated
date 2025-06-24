@@ -48,8 +48,8 @@ export default function Home() {
                   transform: "translate(-50%, -50%)",
                 }}
               >
-                <span className="block w-8 h-8 bg-white/80 border-2 border-black rounded-full flex items-center justify-center shadow-lg hover:bg-primary-500 hover:scale-110 transition-all cursor-pointer">
-                  <span className="w-3 h-3 bg-black rounded-full" />
+                <span className="block w-8 h-8 rounded-full flex items-center justify-center cursor-pointer ripple-animate border border-white">
+                  <span className="w-3 h-3 bg-white rounded-full" />
                 </span>
                 <span className="sr-only">Go to {spot.handle}</span>
               </Link>
@@ -81,8 +81,8 @@ export default function Home() {
                   transform: "translate(-50%, -50%)",
                 }}
               >
-                <span className="block w-8 h-8 bg-white/80 border-2 border-black rounded-full flex items-center justify-center shadow-lg hover:bg-primary-500 hover:scale-110 transition-all cursor-pointer">
-                  <span className="w-3 h-3 bg-black rounded-full" />
+                <span className="block w-8 h-8 rounded-full flex items-center justify-center cursor-pointer ripple-animate border border-white">
+                  <span className="w-3 h-3 bg-white rounded-full" />
                 </span>
                 <span className="sr-only">Go to {spot.handle}</span>
               </Link>
