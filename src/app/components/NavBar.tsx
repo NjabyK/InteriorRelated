@@ -5,7 +5,7 @@ const glassClass = "backdrop-blur-lg bg-black/15 rounded px-2 py-0.5 sm:px-3 sm:
 
 export default function NavBar() {
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 sm:px-8 pt-20 pb-5 sm:py-6">
+    <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 sm:px-8 pt-15 pb-5 sm:py-6">
       {/* Left links */}
       <div className="flex gap-4 sm:gap-8">
         {/* Desktop: Show Shop All */}
