@@ -1,11 +1,9 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
 
 const glassClass = "backdrop-blur-lg bg-black/15 rounded px-2 py-0.5 sm:px-3 sm:py-1 border border-white/30 shadow-lg transition-transform duration-200 hover:scale-110 text-sm sm:text-base";
 
 export default function NavBar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 sm:px-8 pt-20 pb-5 sm:py-6">
       {/* Left links */}
