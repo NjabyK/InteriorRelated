@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { useCart } from "./CartContext";
 import ExploreDrawer from "./ExploreDrawer";
 import MobileMenuDrawer from "./MobileMenuDrawer";

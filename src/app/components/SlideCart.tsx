@@ -1,8 +1,9 @@
 "use client";
-import { useCart } from "./CartContext";
+import { useCart, CartLine } from "./CartContext";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SlideCart() {
   const { cart, open, setOpen, loading, removeFromCart } = useCart();
@@ -36,12 +37,14 @@ export default function SlideCart() {
         ) : !cart || !cart.lines?.edges?.length ? (
           <div className="text-white text-center mt-8">Your cart is empty.</div>
         ) : (
-          cart.lines.edges.map((edge: any) => (
+          cart.lines.edges.map((edge: { node: CartLine }) => (
             <div key={edge.node.id} className="flex items-center gap-4 bg-black/20 rounded-lg p-2">
               {edge.node.merchandise.image?.url && (
-                <img
+                <Image
                   src={edge.node.merchandise.image.url}
                   alt={edge.node.merchandise.image.altText || "Product"}
+                  width={64}
+                  height={64}
                   className="w-16 h-16 object-cover rounded"
                 />
               )}

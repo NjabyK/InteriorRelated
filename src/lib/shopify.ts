@@ -1,3 +1,10 @@
+export interface Product {
+  id: string;
+  title: string;
+  handle: string;
+  images: { edges: { node: { src: string; altText?: string } }[] };
+}
+
 const domain = process.env.SHOPIFY_STORE_DOMAIN!;
 const token = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 
@@ -16,7 +23,7 @@ export async function shopifyFetch(query: string, variables = {}) {
   return json.data;
 }
 
-export async function getProducts() {
+export async function getProducts(): Promise<Product[]> {
   const query = `
     {
       products(first: 10) {
@@ -32,5 +39,5 @@ export async function getProducts() {
     }
   `;
   const data = await shopifyFetch(query);
-  return data.products.edges.map((edge: any) => edge.node);
+  return data.products.edges.map((edge: { node: Product }) => edge.node);
 } 
