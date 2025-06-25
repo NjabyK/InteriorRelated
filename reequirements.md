@@ -18,9 +18,9 @@ Build a fully custom online store using **Next.js** for the frontend and **Shopi
 2. **Product Display**
 
    * Fetch products from Shopify’s **Storefront API (GraphQL)**
-   * Display products in custom layouts and via **clickable image maps**
+   * Display products in spofiy shop via **clickable image maps**
 
-     * Each image can have absolute-positioned regions linking to specific products
+     * Each image should have absolute-positioned regions linking to specific products
 
 3. **Cart Functionality**
 
