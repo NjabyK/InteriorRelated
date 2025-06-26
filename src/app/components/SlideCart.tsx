@@ -1,12 +1,17 @@
 "use client";
-import { useCart, CartLine } from "./CartContext";
+import { CartLine, useCart } from "./CartContext";
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
+import { X, RefreshCw } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function SlideCart() {
-  const { cart, open, setOpen, loading, removeFromCart } = useCart();
+interface SlideCartProps {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+
+export default function SlideCart({ open, setOpen }: SlideCartProps) {
+  const { cart, loading, removeFromCart, refreshCart } = useCart();
 
   return (
     <div
@@ -27,9 +32,24 @@ export default function SlideCart() {
       />
       <div className="flex items-center justify-between p-4 border-b border-white/20">
         <span className="font-bold text-lg text-white">Your Cart</span>
-        <Button size="icon" variant="ghost" onClick={() => setOpen(false)}>
-          <X className="w-6 h-6 text-white" />
-        </Button>
+        <div className="flex gap-2">
+          <Button 
+            size="icon" 
+            variant="ghost" 
+            onClick={() => {
+              console.log("🔄 Manual refresh button clicked");
+              refreshCart();
+            }}
+            disabled={loading}
+            className="text-white hover:bg-white/10 transition-colors"
+            title="Refresh cart"
+          >
+            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+          </Button>
+          <Button size="icon" variant="ghost" onClick={() => setOpen(false)}>
+            <X className="w-6 h-6 text-white" />
+          </Button>
+        </div>
       </div>
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {loading ? (

@@ -2,11 +2,13 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useCart } from "./CartContext";
+import { useCartDrawer } from "./CartDrawerProvider";
 
 const glassClass = "backdrop-blur-lg bg-black/15 rounded border border-white/30 shadow-lg transition-transform duration-200 hover:scale-110 text-sm sm:text-base px-2 py-0.5 sm:px-3 sm:py-1";
 
 export default function NavBar() {
-  const { cart, setOpen } = useCart();
+  const { cart } = useCart();
+  const { setOpen } = useCartDrawer();
   const itemCount = cart?.lines?.edges?.length || 0;
 
   return (

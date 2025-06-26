@@ -3,7 +3,7 @@
 **Project Title:** Custom Shopify-Integrated Online Storefront
 
 **Objective:**
-Build a fully custom online store using **Next.js** for the frontend and **Shopify** for the backend. This store should **not use Shopify themes** or Liquid. It should function similarly to **Drake’s merch site**, allowing users to explore visual drop-style collections via interactive images and purchase through a custom cart system.
+Build a fully custom online store using **Next.js** for the frontend and **Shopify** for the backend. This store should **not use Shopify themes** or Liquid. It should function similarly to **Drake's merch site**, allowing users to explore visual drop-style collections via interactive images and purchase through a custom cart system.
 
 ---
 
@@ -17,7 +17,7 @@ Build a fully custom online store using **Next.js** for the frontend and **Shopi
 
 2. **Product Display**
 
-   * Fetch products from Shopify’s **Storefront API (GraphQL)**
+   * Fetch products from Shopify's **Storefront API (GraphQL)**
    * Display products in spofiy shop via **clickable image maps**
 
      * Each image should have absolute-positioned regions linking to specific products outside of custom UI. They should link to the shopify product page
@@ -26,7 +26,7 @@ Build a fully custom online store using **Next.js** for the frontend and **Shopi
 3. **Cart Functionality**
 
    * Build a **custom cart UI**
-   * Use Shopify’s **Cart API** to:
+   * Use Shopify's **Cart API** to:
 
      * Create a cart session
      * Add/update/remove items
@@ -64,5 +64,4 @@ Build a fully custom online store using **Next.js** for the frontend and **Shopi
 * **Auth**: Shopify Customer API
 * **Image Drop Map**: Custom component using absolute positioning
 * **Deployment**: Vercel or Netlify
-* **Environment Variables**: `SHOPIFY_STORE_DOMAIN`, `SHOPIFY_STOREFRONT_ACCESS_TOKEN`
-
+* **Environment Variables**: `SHOPIFY_STORE_DOMAIN`, `SHOPIFY_STOREFRONT_ACCESS_TOKEN` 

@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Interior Related - Drake-Style Online Store
+
+A custom Shopify-integrated online storefront built with Next.js, featuring an interactive image-based product discovery experience inspired by Drake's merch site.
+
+## Features
+
+- **Interactive Product Discovery**: Clickable hotspots on hero images that link to specific products
+- **Custom Cart System**: Full Shopify cart integration with custom UI
+- **Customer Authentication**: Secure login system using Shopify's Customer API
+- **Responsive Design**: Optimized for both mobile and desktop experiences
+- **Drag-to-Scroll**: Interactive scrolling experience on hero images
+- **Modern UI**: Built with TailwindCSS and modern design patterns
+
+## Tech Stack
+
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **Styling**: TailwindCSS v4, tw-animate-css
+- **Backend**: Shopify Storefront API (GraphQL)
+- **Authentication**: Shopify Customer API
+- **Deployment**: Vercel-ready
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- Shopify store with Storefront API access
+- Environment variables configured
+
+### Environment Variables
+
+Create a `.env.local` file with the following variables:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+SHOPIFY_STORE_DOMAIN=your-store.myshopify.com
+SHOPIFY_STOREFRONT_ACCESS_TOKEN=your_storefront_token
+NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN=your_storefront_token
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd interiorrelated
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+```bash
+npm install
+```
 
-## Learn More
+3. Run the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── api/           # API routes for Shopify integration
+│   ├── components/    # React components
+│   ├── globals.css    # Global styles
+│   ├── layout.tsx     # Root layout
+│   └── page.tsx       # Home page with interactive hero
+├── components/
+│   └── ui/           # Reusable UI components
+└── lib/
+    ├── shopify.ts    # Shopify API utilities
+    ├── utils.ts      # Utility functions
+    └── useDragScroll.ts # Custom drag scroll hook
+```
 
-## Deploy on Vercel
+## Key Components
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Hero Image with Hotspots**: Interactive product discovery on the main page
+- **Cart System**: Full cart management with Shopify integration
+- **Login Modal**: Customer authentication system
+- **Product Modal**: Quick product preview and add-to-cart functionality
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## Deployment
+
+The project is configured for easy deployment on Vercel. Simply connect your repository and configure the environment variables.
+
+## License
+
+This project is private and proprietary.

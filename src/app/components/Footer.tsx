@@ -4,13 +4,16 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "./CartContext";
 import ExploreDrawer from "./ExploreDrawer";
 import MobileMenuDrawer from "./MobileMenuDrawer";
+import { useCartDrawer } from "./CartDrawerProvider";
+// import SlideCart from "./SlideCart"; // Uncomment if you want to render the cart drawer here
 
 const glassClass = "backdrop-blur-lg bg-black/15 rounded border border-white/30 shadow-lg transition-transform duration-200 hover:scale-110 text-sm sm:text-base px-2 py-0.5 sm:px-3 sm:py-1";
 
 export default function Footer() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
-  const { cart, setOpen } = useCart();
+  const { cart } = useCart();
+  const { setOpen } = useCartDrawer();
   const itemCount = cart?.lines?.edges?.length || 0;
 
   return (
@@ -48,6 +51,7 @@ export default function Footer() {
       
       <ExploreDrawer open={exploreOpen} onClose={() => setExploreOpen(false)} />
       <MobileMenuDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
+      {/* <SlideCart open={cartDrawerOpen} setOpen={setCartDrawerOpen} /> */}
     </>
   );
 }
